@@ -93,7 +93,7 @@ Yes, but take into account that XC95 CPLDs doesn't have programmmable pull-ups, 
 Yes to both questions.
 
 ***I can see a "divmmc_mcleod_nom1.v" file with a version of the DivMMC module that isn't being used. What is that for?***
-Glad you asked! It's an experimental DivMMC module that DOESN'T NEED THE M1 SIGNAL FROM THE Z80. It's experimental in the way that it works most of the time, but sometimes, not. If you program the CPLD with this version, it will use the RFSH signal instead of M1 to map and unmap the EEPROM, and a slighly sofisticated method to find out if it is in a M1 cycle, or memory read cycle, to inmediately map the EEPROM for TRDOS traps. More on this later.
+Glad you asked! It's an experimental DivMMC module that **DOESN'T NEED THE M1 SIGNAL FROM THE Z80**. It's experimental in the way that it works most of the time, but sometimes, not. If you program the CPLD with this version, it will use the RFSH signal instead of M1 to map and unmap the EEPROM, and a slighly sofisticated method to find out if it is in a M1 cycle, or memory read cycle, to inmediately map the EEPROM for TRDOS traps. More on this later.
 
 ***What "tiesus-del-tó" means?***
 It means "really really broke".
