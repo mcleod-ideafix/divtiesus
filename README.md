@@ -80,17 +80,16 @@ Now the edge connector is ready to work as a ZX Spectrum rear bus connector!
 ![](img/zxconn_5.jpg)
 
 # FAQ (in progress)
-- Is this the same version as you have already on sale?
+***Is this the same version as you have already on sale?***
 Almost! This version is the basic version, which is also the cheapest one I've made. Although it's the "basic" version, it has plenty of features, not present in any other DivMMC-like interface, atm.
 
-- Can I take this, build or have someone else build some units, sell them and make some profit?
+***Can I take this, build or have someone else build some units, sell them and make some profit?***
 I'm ok with that. I only ask you two things: do not remove my copyright noptice from the silk screen and any other document present in this repository, and if you make changes, additions, or otherwise improve the board, make those changes public and available for others as well.
 
-- Can I adapt the Verilog code for a Xilinx part, like XC95144XL?
+***Can I adapt the Verilog code for a Xilinx part, like XC95144XL?***
 Yes, but take into account that XC95 CPLDs doesn't have programmmable pull-ups, so you might need to add some 10K resistors to the board.
+*Can I use 512K SRAM chips instead of 128K? Will the board recognize and use it at full capacity?*
+Yes to both questions.
 
-- Can I use 512K SRAM chips instead of 128K? Will the board recognize and use it at full capacity?
-- Yes to both questions.
-
-- I can see a "divmmc_mcleod_nom1.v" file with a version of the DivMMC module that isn't being used. What is that for?
-- Glad you asked! It's an experimental DivMMC module that DOESN'T NEED THE M1 SIGNAL FROM THE Z80. It's experimental in the way that it works most of the time, but sometimes, not. If you program the CPLD with this version, it will use the RFSH signal instead of M1 to map and unmap the EEPROM, and a slighly sofisticated method to find out if it is in a M1 cycle, or memory read cycle, to inmediately map the EEPROM for TRDOS traps. More on this later.
+***I can see a "divmmc_mcleod_nom1.v" file with a version of the DivMMC module that isn't being used. What is that for?***
+Glad you asked! It's an experimental DivMMC module that DOESN'T NEED THE M1 SIGNAL FROM THE Z80. It's experimental in the way that it works most of the time, but sometimes, not. If you program the CPLD with this version, it will use the RFSH signal instead of M1 to map and unmap the EEPROM, and a slighly sofisticated method to find out if it is in a M1 cycle, or memory read cycle, to inmediately map the EEPROM for TRDOS traps. More on this later.
