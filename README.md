@@ -22,6 +22,12 @@ There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. Th
 ![](img/divtiesus_back.jpg)
 ![](img/divtiesus_zxbus_connector_detail.jpg)
 
+# Schematic, board and layout (top and flipped bottom side)
+![](sch/schematic.png)
+![](sch/board.png)
+![](sch/layout_top_side.png)
+![](sch/layout_bottom_side.png)
+
 # Build
 - First, you need the DivTIESUS PCB. You can order it from JLCPCB using the files in "gerber" directory. They are already tailored for JLCPCB PCB process.
 - Second: get the component list. Following is the BOM, with Mouser references to get parts from them, but most of the components are rather standard so you can get it from severla other distributors. Many of them can also be obtained from Aliexpress.
