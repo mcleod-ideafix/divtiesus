@@ -1,7 +1,7 @@
 # DivTIESUS
 DivTIESUS is a SD/MMC card interface for the ZX Spectrum. First designed by Mario Pratto as DivMMC, DivTIESUS is an independent design, compatible with the I/O ports and mapper used both in DivIDE and DivMMC, but adding more features.
 
-There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. This one is the "Tiesus del tó" version, which I have released for the community, so anyone can build their own interface.
+There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. This one is the "Tiesus del tó" version, which I have released for the community, so anyone can build his/her own interface.
 
 # Features
 - DivMMC compatible interface with 8 KiB of EEPROM and 512 KiB of RAM. Standard utils for EEPROM flashing, as provided by the ESXDOS team, are compatible with DivTIESUS.
@@ -53,11 +53,11 @@ There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. Th
 |1|LM1117-3.3|IC1|579-TC1264-3.3VDB|
 |1|SWITCH_SMD_6PIN|JUMPER_E|4000030382277 (Aliexpress)|
 
-- The oscillator does not need to be 25 MHz. It can be about any value between 14 and 30 MHz (it may work with values outside these limits)
-- It is very recommended to use a stencil and solder paste for the soldering process. You don't really need a reflow oven, as parts can be soldered using hot air. There are plenty of Youtube videos covering the matter.
+- The oscillator does not need to be 25 MHz. It can be about any value between 14 and 30 MHz (it may even work with values outside these limits -not tested-)
+- It is very advisable to use a stencil and solder paste for the soldering process. You don't really need a reflow oven, as parts can be soldered using hot air. There are plenty of Youtube videos covering the matter.
 - Start placing passives (resistors, capacitors, going from right to left. Leave the SRAM, EEPROM, SD socket and CPLD for the end (in this order). Don't place thru-hole components yet.
-- Reflow the top side using an oven, hot plate or hot air. For two pad parts you can even appy the solder tip a few seconds on each pad to allow reflowing it, while keeping the part in place with a pair of tweezers. Same method can be used with SOT-223 parts (the 3.3V regulator), the SD card slot and the SMD switch.
-- Turn the board and put-place-solder the two leds. Be aware of polarity with them. Also be aware that these components are very delicate and won't hold much heat, so try to not to apply too much heat and for too much longer. You can see in the PCB that (K)athode and (A)node are marked. If you don't like red and blue, use whichever colours you like (or have available).
+- Reflow the top side using an oven, hot plate or hot air. For two pad parts you can even apply the solder tip a few seconds on each pad to allow reflowing it, while keeping the part in place with a pair of tweezers. Same method can be used with SOT-223 parts (the 3.3V regulator), the SD card slot and the SMD switch.
+- Turn the board and put-place-solder the two leds. Be aware of polarity with them. Also be aware that these components are very delicate and won't hold much heat, so try to not to apply too much heat and for too much time. You can see in the PCB that (K)athode and (A)node are marked. If you don't like red and blue, use whichever colours you like (or have available).
 
 ## First electrical testing
 - Check that there is no shortcircuits at the 5V and 3.3V power rails.
@@ -88,7 +88,8 @@ I'm ok with that. I only ask you two things: do not remove my copyright noptice 
 
 ***Can I adapt the Verilog code for a Xilinx part, like XC95144XL?***
 Yes, but take into account that XC95 CPLDs doesn't have programmmable pull-ups, so you might need to add some 10K resistors to the board.
-*Can I use 512K SRAM chips instead of 128K? Will the board recognize and use it at full capacity?*
+
+***Can I use 512K SRAM chips instead of 128K? Will the board recognize and use it at full capacity?***
 Yes to both questions.
 
 ***I can see a "divmmc_mcleod_nom1.v" file with a version of the DivMMC module that isn't being used. What is that for?***
