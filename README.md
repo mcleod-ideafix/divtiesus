@@ -51,7 +51,7 @@ There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. Th
 - It is very recommended to use a stencil and solder paste for the soldering process. You don't really need a reflow oven, as parts can be soldered using hot air. There are plenty of Youtube videos covering the matter.
 - Start placing passives (resistors, capacitors, going from right to left. Leave the SRAM, EEPROM, SD socket and CPLD for the end (in this order). Don't place thru-hole components yet.
 - Reflow the top side using an oven, hot plate or hot air. For two pad parts you can even appy the solder tip a few seconds on each pad to allow reflowing it, while keeping the part in place with a pair of tweezers. Same method can be used with SOT-223 parts (the 3.3V regulator), the SD card slot and the SMD switch.
-- Turn the board and put-place-solder the two leds. Be aware of polarity with them. Also be aware that these components are very delicate and won't hold much heat, so try to not to apply too much heat and for too much longer. You can see in the PCB that (K)athode and (A)node are marked. If you don't like red and blue, use whichever colours you like (or have available)
+- Turn the board and put-place-solder the two leds. Be aware of polarity with them. Also be aware that these components are very delicate and won't hold much heat, so try to not to apply too much heat and for too much longer. You can see in the PCB that (K)athode and (A)node are marked. If you don't like red and blue, use whichever colours you like (or have available).
 
 ## First electrical testing
 - Check that there is no shortcircuits at the 5V and 3.3V power rails.
@@ -64,7 +64,7 @@ After all this first checks, proceed to build and solder the ZX Spectrum bus con
 - Take the 2x28 pin edge connector and cut about 1-2mm on each side to leave the ends opened, as in the last picture of this section.
 - With a pair of tweezers, pull and extract the two metal contacts that are positioned at 5th place, where the index tab will be.
 ![](img/zxconn_1.jpg)
-- Now take a small piece you can get from a PCB, 1.5mm thick and 7mm tall. This will be the index t ab
+- Now take a small piece you can get from a PCB, 1.5mm thick and 7mm tall. This will be the index tab.
 ![](img/zxconn_2.jpg)
 - Place the piece in the index hole. Sand it if it's too tall for the hole.
 ![](img/zxconn_3.jpg)
