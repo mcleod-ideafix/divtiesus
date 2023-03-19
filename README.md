@@ -47,7 +47,28 @@ There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. Th
 |1|LM1117-3.3|IC1|579-TC1264-3.3VDB|
 |1|SWITCH_SMD_6PIN|JUMPER_E|4000030382277 (Aliexpress)|
 
+- The oscillator does not need to be 25 MHz. It can be about any value between 14 and 30 MHz (it may work with values outside these limits)
 - It is very recommended to use a stencil and solder paste for the soldering process. You don't really need a reflow oven, as parts can be soldered using hot air. There are plenty of Youtube videos covering the matter.
-- Start with passives (resistors, capacitors, going from right to left. Leave the SRAM, EEPROM, SD socket and CPLD for the end (in this order). Don't solder thru-hole components yet.
-- Turn the board and solder the two leds. You can see in the PCB that (K)athode and (A)node are marked. If you don't like red and blue, use whichever colours you like (or have available)
-- The oscillator does not need to be 25 Mhz. It can be about any value between 14 and 30 MHz (it may work with values outside these limits)
+- Start placing passives (resistors, capacitors, going from right to left. Leave the SRAM, EEPROM, SD socket and CPLD for the end (in this order). Don't place thru-hole components yet.
+- Reflow the top side using an oven, hot plate or hot air. For two pad parts you can even appy the solder tip a few seconds on each pad to allow reflowing it, while keeping the part in place with a pair of tweezers. Same method can be used with SOT-223 parts (the 3.3V regulator), the SD card slot and the SMD switch.
+- Turn the board and put-place-solder the two leds. Be aware of polarity with them. Also be aware that these components are very delicate and won't hold much heat, so try to not to apply too much heat and for too much longer. You can see in the PCB that (K)athode and (A)node are marked. If you don't like red and blue, use whichever colours you like (or have available)
+
+## First electrical testing
+- Check that there is no shortcircuits at the 5V and 3.3V power rails.
+- Check that there is no shorts between adjacent pads at the CPLD chip. You may need a magnifying glass to do that. Shorts between adjacent pins at the SRAM or CPLD are easier to notice (I hope).
+- To fix any shorts, paste flux is your very best friend. Use it wisely. To me, AMTECH NC-559 solder flux is the best thing to have around (be aware of imitations in Aliexpress!)
+
+After all this first checks, proceed to build and solder the ZX Spectrum bus connector:
+
+## ZX Spectrum bus connector
+- Take the 2x28 pin edge connector and cut about 1-2mm on each side to leave the ends opened, as in the last picture of this section.
+- With a pair of tweezers, pull and extract the two metal contacts that are positioned at 5th place, where the index tab will be.
+![](img/zxconn_1.jpg)
+- Now take a small piece you can get from a PCB, 1.5mm thick and 7mm tall. This will be the index t ab
+![](img/zxconn_2.jpg)
+- Place the piece in the index hole. Sand it if it's too tall for the hole.
+![](img/zxconn_3.jpg)
+- Using a pair of pliers, push it in place. If it's too small for the hole, use some glue to keep it from coming loose.
+![](img/zxconn_4.jpg)
+Now the edge connector is ready to work as a ZX Spectrum rear bus connector!                                                      
+![](img/zxconn_5.jpg)
