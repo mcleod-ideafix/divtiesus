@@ -1,0 +1,196 @@
+SYSTEM COMMANDS
+---------------
+
+ORG $2000
+
+Max Size: For now, 7K (don't know for sure the final size but should be at least 7K)
+
+On entry:
+
+HL=Pointer to args or HL=0 if no args
+HL is typically pointing directly to BASIC line, so for END marker you should check for $0D, ":" as well as 0.
+
+On exit:
+
+If you exit with carry set and A<>0, the corresponding error code will be printed in BASIC.
+If carry set and A=0, HL should be pointing to a custom error message (with last char +$80 as END marker).
+If carry reset, exit cleanly to BASIC
+
+If you need no special treatment of errors, you can just throw a RET C after syscalls and it will go back to BASIC with right error code (file not found, etc).
+
+NOTE: Altough ESXDOS tries it's best to clean up open handles left by .commands, you should always try your best not to leave handles opened when exiting to BASIC.
+
+RST $08
+-------
+
+Main syscall entry point. Parameters are the same for code inside ESXDOS (.commands, etc) and on speccy ram, EXCEPT on speccy RAM you must use IX instead of HL.
+
+RST $30
+-------
+
+Auxiliary routines to be used only inside ESXDOS. To be documented.
+
+SYSTEM CALLS
+------------
+
+If there's some call in esxdos.inc that you don't see here, it's because it's not finished yet. The naming convention of calls will also change to be more posix-like. On all calls, if carry set -> ERROR and error code is in A.
+
+DISK_READ: Read one block of data from device A, at position BCDE at address HL
+
+DISK_WRITE: Write one block of data from device A, at position BCDE at address HL
+
+DISK_INFO: If A=0 -> Get a buffer at address HL filled with a list of available block devices. If A<>0 -> Get info for a specific device. Buffer format:
+
+<byte>  Device Path (see below)
+<byte>  Device Flags (to be documented, block size, etc)
+<dword> Device size in blocks
+
+The buffer is over when you read a Device Path and you get a 0. FIXME: Make so that on return A=# of devs
+
+; Device Entry Description
+;
+; [BYTE] DEVICE PATH
+;
+; ---------------------------------
+; |       MAJOR       |  MINOR    |
+; +-------------------------------+
+; | 7 | 6 | 5 | 4 | 3 | 2 | 1 | 0 |
+; +---+---+---+---+---+---+---+---+
+; | E | D | C | B   B | A   A   A |
+;
+;
+; A: MINOR
+; --------
+; 000 : RAW (whole device)
+; 001 : 0       (first partition/session)
+; 010 : 1       (second partition/session)
+; 011 : 2       (etc...)
+; 100 : 3
+; 101 : 4
+; 110 : 5
+; 111 : 6
+;
+; B:
+; --
+; 00 : RESERVED
+; 01 : IDE
+; 10 : FLOPPY
+; 11 : VIRTUAL
+;
+; C:
+; --
+; 0 : PRIMARY
+; 1 : SECONDARY
+;
+; D:
+; --
+; 0 : MASTER
+; 1 : SLAVE
+;
+; E:
+; --
+; 0 : ATA
+; 1 : ATAPI
+
+This needs changing/fixing for virtual devs, etc.
+
+-------------//--------------------------------------
+
+M_GETSETDRV: If A=0 -> Get default drive in A. Else set default drive passed in A.
+
+; LOGICAL DRIVES
+; =========================
+; 
+; --------------------------------------------------
+; BIT   |         7-3           |       2-0        |
+; --------------------------------------------------
+;       | Drive letter from A-Z | Drive number 0-7 |
+; --------------------------------------------------
+;
+; Programs that need to print all available drives (ie, file selector)
+; just need to:
+;
+; a) Process higher 5 bits to print Drive letter
+; b) Print the 'd'
+; c) Process the lower 3 bits to print Drive number.
+
+M_TAPEIN: To be documented.
+
+M_TAPEOUT: To be documented.
+
+M_GETHANDLE: Get file handle of just loaded BASIC program in A. To be used with single-file loaders (Condommed for example).
+
+M_GETDATE: Get current date/time in MSDOS format (without the 5th byte, so it's only 4 bytes - only 2 secs precision). On DivIDE it's always 23/04/1982 00:00:00
+
+-------------//--------------------------------------
+
+F_MOUNT: To be documented
+
+F_OPEN: Open file.
+
+A=drive
+HL=Pointer to null-terminated string containg path and/or filename
+B=file access mode (check esxdos.inc)
+DE=Pointer to BASIC header data / buffer to get filled with BASIC header data (8 bytes like +3DOS). If you try to open a headerless file, BASIC type is $ff. Only used when B specifies it.
+
+On return if OK, A=file handle.
+
+F_CLOSE: Close a file or dir handle. A=handle.
+
+F_SYNC: For files that have been written to, syncs the file dir entry (will also flush write cache in future). A=handle
+
+F_READ: Read BC bytes at HL off file handle A. On return BC=number of bytes actually read. File pointer gets updated.
+
+F_WRITE: Write BC bytes from HL off file handle A. On return BC=number of bytes actually written. File pointer gets updated.
+
+F_SEEK: Seek BCDE bytes. A=handle
+
+L=mode (0 from start of file, 1 fwd from current pos, 2 bak from current pos). On return BCDE=current file pointer. FIXME-Should return bytes actually seeked
+
+F_FGETPOS: Get current file pointer. A=handle.
+
+F_FSTAT: Get file info/status to buffer at HL. A=handle. Buffer format:
+
+<byte>  drive
+<byte>  device
+<byte>  file attributes (like MSDOS)
+<dword> date
+<dword> file size
+
+F_OPENDIR: Open dir.
+
+A=drive
+HL=Pointer to null-terminated string containg path to dir
+B=dir access mode (only BASIC header bit matters - if you want to read header info or not)
+
+On return if OK, A=dir handle.
+
+F_READDIR: Read a dir entry to buffer pointed to by HL. A=handle. Buffer format:
+
+<asciiz> file/dirname
+<byte>   attributes (like MSDOS)
+<dword>  date
+<dword>  filesize
+
+If opened with BASIC header bit, after the normal entry follows the BASIC header (with type=$ff if headerless)
+
+On return, if A=1 theres more entries, if=0 then it's end of dir. FIXME-A should return size of entry, 0 if enf of dir.
+
+
+F_TELLDIR: A = handle. Obtiene en BCDE el offset en bytes a la entrada de directorio a punto de ser leida. Una entrada son 32 bytes.
+F_SEEKDIR: A = handle. Salta a la posición de byte BCDE dentro del directorio. Es coveniente (probar!) que esta posición sea multiplo de 32 bytes. Usará L igual que SEEK??
+
+F_GETCWD: Get current directory path (null-terminated) to a buffer.
+
+A=drive
+HL=pointer to buffer
+
+F_CHDIR: Change current directory path
+
+A=drive
+HL=pointer to asciiz dir/path
+
+F_UNLINK: Delete a file
+
+A=drive
+HL=pointer to asciiz file/path
