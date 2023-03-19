@@ -19,8 +19,14 @@ There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. Th
 
 # Pictures
 ![](img/divtiesus_front.jpg)
+![](img/divtiesus_back.jpg)
+![](img/divtiesus_zxbus_connector_detail.jpg)
 
-# Bill of materials
+# Build
+- First, you need the DivTIESUS PCB. You can order it from JLCPCB using the files in "gerber" directory. They are already tailored for JLCPCB PCB process.
+- Second: get the component list. Following is the BOM, with Mouser references to get parts from them, but most of the components are rather standard so you can get it from severla other distributors. Many of them can also be obtained from Aliexpress.
+
+## Bill of materials
 |Qty|Value|PCB part|Mouser ref.|
 | ------------ | ------------ | ------------ | ------------ |
 |2|WS-TATU-TH 431256058726|NMI, RESET|710-431256058726|
@@ -41,3 +47,7 @@ There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. Th
 |1|LM1117-3.3|IC1|579-TC1264-3.3VDB|
 |1|SWITCH_SMD_6PIN|JUMPER_E|4000030382277 (Aliexpress)|
 
+- It is very recommended to use a stencil and solder paste for the soldering process. You don't really need a reflow oven, as parts can be soldered using hot air. There are plenty of Youtube videos covering the matter.
+- Start with passives (resistors, capacitors, going from right to left. Leave the SRAM, EEPROM, SD socket and CPLD for the end (in this order). Don't solder thru-hole components yet.
+- Turn the board and solder the two leds. You can see in the PCB that (K)athode and (A)node are marked. If you don't like red and blue, use whichever colours you like (or have available)
+- The oscillator does not need to be 25 Mhz. It can be about any value between 14 and 30 MHz (it may work with values outsides these limits)
