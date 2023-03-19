@@ -1,0 +1,177 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2020  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and any partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details, at
+# https://fpgasoftware.intel.com/eula.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+# Date created = 11:33:43  September 21, 2021
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		tld_divtiesus_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "MAX II"
+set_global_assignment -name DEVICE EPM240T100C5
+set_global_assignment -name TOP_LEVEL_ENTITY tld_divtiesus
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:33:43  SEPTEMBER 21, 2021"
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name DEVICE_FILTER_PACKAGE TQFP
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 100
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR "-1"
+set_global_assignment -name POWER_EXT_SUPPLY_VOLTAGE_TO_REGULATOR 3.3V
+set_location_assignment PIN_28 -to a[15]
+set_location_assignment PIN_27 -to a[14]
+set_location_assignment PIN_26 -to a[13]
+set_location_assignment PIN_77 -to a[12]
+set_location_assignment PIN_89 -to a[11]
+set_location_assignment PIN_87 -to a[10]
+set_location_assignment PIN_90 -to a[9]
+set_location_assignment PIN_91 -to a[8]
+set_location_assignment PIN_76 -to a[7]
+set_location_assignment PIN_66 -to a[6]
+set_location_assignment PIN_67 -to a[5]
+set_location_assignment PIN_68 -to a[4]
+set_location_assignment PIN_69 -to a[3]
+set_location_assignment PIN_70 -to a[2]
+set_location_assignment PIN_71 -to a[1]
+set_location_assignment PIN_72 -to a[0]
+set_location_assignment PIN_64 -to clk25mhz
+set_location_assignment PIN_86 -to d[7]
+set_location_assignment PIN_85 -to d[6]
+set_location_assignment PIN_84 -to d[5]
+set_location_assignment PIN_83 -to d[4]
+set_location_assignment PIN_82 -to d[3]
+set_location_assignment PIN_75 -to d[2]
+set_location_assignment PIN_74 -to d[1]
+set_location_assignment PIN_73 -to d[0]
+set_location_assignment PIN_97 -to eeprom_oe_n
+set_location_assignment PIN_98 -to eeprom_we_n
+set_location_assignment PIN_12 -to iorq_n
+set_location_assignment PIN_47 -to jumper_e
+set_location_assignment PIN_1 -to m1_n
+set_location_assignment PIN_51 -to miso
+set_location_assignment PIN_53 -to mosi
+set_location_assignment PIN_14 -to mreq_n
+set_location_assignment PIN_61 -to nmi_button_n
+set_location_assignment PIN_5 -to nmi_n
+set_location_assignment PIN_29 -to notplus3
+set_location_assignment PIN_3 -to rd_n
+set_location_assignment PIN_100 -to romoe1
+set_location_assignment PIN_4 -to romoe2
+set_location_assignment PIN_2 -to rst_n
+set_location_assignment PIN_54 -to sclk
+set_location_assignment PIN_52 -to sd_cs0
+set_location_assignment PIN_57 -to sram_hiaddr[5]
+set_location_assignment PIN_58 -to sram_hiaddr[4]
+set_location_assignment PIN_78 -to sram_hiaddr[3]
+set_location_assignment PIN_96 -to sram_hiaddr[2]
+set_location_assignment PIN_81 -to sram_hiaddr[1]
+set_location_assignment PIN_92 -to sram_hiaddr[0]
+set_location_assignment PIN_88 -to sram_oe_n
+set_location_assignment PIN_95 -to sram_we_n
+set_location_assignment PIN_62 -to wr_n
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[7]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[6]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[5]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[4]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[3]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[2]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[1]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[0]
+set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to nmi_n
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name AUTO_RESTART_CONFIGURATION OFF
+set_global_assignment -name ENABLE_DEVICE_WIDE_RESET OFF
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS "AS INPUT TRI-STATED WITH WEAK PULL-UP"
+set_global_assignment -name EXTRACT_VERILOG_STATE_MACHINES OFF
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[15]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[14]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[13]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[12]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[11]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[10]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[9]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[8]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[7]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[6]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[5]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[4]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[3]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[2]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[1]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to a[0]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to d[7]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to d[6]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to d[5]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to d[4]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to d[3]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to d[2]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to d[1]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to d[0]
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to iorq_n
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to jumper_e
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to m1_n
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to miso
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to mreq_n
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to nmi_button_n
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to notplus3
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to rd_n
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to rst_n
+set_instance_assignment -name IO_STANDARD "3.3V SCHMITT TRIGGER INPUT" -to wr_n
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to miso
+set_global_assignment -name VERILOG_FILE divmmc_mcleod.v
+set_global_assignment -name VERILOG_FILE zxunoregs.v
+set_global_assignment -name VERILOG_FILE tres_e.v
+set_global_assignment -name VERILOG_FILE tld_divtiesus.v
+set_global_assignment -name VERILOG_FILE modo.v
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to romoe1
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to romoe1
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to romoe2
+set_global_assignment -name SECURITY_BIT ON
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to jumper_e
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 5
+set_global_assignment -name OPTIMIZATION_MODE BALANCED
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to nmi_button_n
+set_location_assignment PIN_8 -to sd_cs1
+set_location_assignment PIN_6 -to romcs
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to romcs
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to romcs
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to romoe2
+set_location_assignment PIN_99 -to rfsh_n
