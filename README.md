@@ -50,7 +50,7 @@ There is a larger version of DivTIESUS, nicknamed "Pijus Magnificus" edition. Th
 |1|JTAG|JTAG|517-N2510-6002RB|
 |1|LED0805-BLUE|SD ACTIVITY|710-150080BS75000|
 |1|LED0805-RED|FIRMWARE UPDATE ENABLED|710-150080RS75000|
-|1|LM1117-3.3|IC1|579-TC1264-3.3VDB|
+|1|LM1117-3.3|IC1|511-LD1117S33|
 |1|SWITCH_SMD_6PIN|JUMPER_E|4000030382277 (Aliexpress)|
 
 - The oscillator does not need to be 25 MHz. It can be about any value between 14 and 30 MHz (it may even work with values outside these limits -not tested-)
