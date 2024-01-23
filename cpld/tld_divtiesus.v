@@ -49,7 +49,10 @@ module tld_divtiesus (
   output wire eeprom_we_n,
   output wire sram_oe_n,
   output wire sram_we_n,
-  output wire [5:0] sram_hiaddr
+  output wire [5:0] sram_hiaddr,
+  input wire uart_rx,
+  output wire uart_tx,
+  output wire uart_rts
   );
 
   wire divmmc_zxromcs, divmmc_eeprom_cs, divmmc_sram_cs, divmmc_sram_write_n;
@@ -162,6 +165,17 @@ module tld_divtiesus (
     .addr(zxuno_addr),
     .read_from_reg(zxuno_regrd),
     .write_to_reg(zxuno_regwr)
-  );  
+  );
+
+  zxunouart (
+    .clk(clk25mhz),
+    .zxuno_addr(zxuno_addr),
+    .zxuno_regrd(zxuno_regrd),
+    .zxuno_regwr(zxuno_regwr),
+    .d(d),
+    .uart_tx(uart_tx),
+    .uart_rx(uart_rx),
+    .uart_rts(uart_rts),
+  );
   
 endmodule

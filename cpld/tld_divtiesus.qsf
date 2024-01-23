@@ -42,7 +42,7 @@ set_global_assignment -name DEVICE EPM240T100C5
 set_global_assignment -name TOP_LEVEL_ENTITY tld_divtiesus
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.1
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "11:33:43  SEPTEMBER 21, 2021"
-set_global_assignment -name LAST_QUARTUS_VERSION "21.1.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "21.1.1 Lite Edition"
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -101,6 +101,9 @@ set_location_assignment PIN_92 -to sram_hiaddr[0]
 set_location_assignment PIN_88 -to sram_oe_n
 set_location_assignment PIN_95 -to sram_we_n
 set_location_assignment PIN_62 -to wr_n
+set_location_assignment PIN_43 -to uart_rx
+set_location_assignment PIN_48 -to uart_tx
+set_location_assignment PIN_50 -to uart_rts
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[7]
 set_instance_assignment -name CURRENT_STRENGTH_NEW 8MA -to d[6]
@@ -161,6 +164,8 @@ set_global_assignment -name VERILOG_FILE zxunoregs.v
 set_global_assignment -name VERILOG_FILE tres_e.v
 set_global_assignment -name VERILOG_FILE tld_divtiesus.v
 set_global_assignment -name VERILOG_FILE modo.v
+set_global_assignment -name VERILOG_FILE uart.v
+set_global_assignment -name VERILOG_FILE zxunouart.v
 set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to romoe1
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to romoe1
 set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to romoe2
